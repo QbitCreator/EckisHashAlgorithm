@@ -28,7 +28,7 @@ def eckisHashAlg(input)
 		end
 	end
 
-#__________________________________Letzten Block mit Anfang des Inputs auffüllen__________________________________________________
+#__________________________________Letzten Block mit Anfang des Inputs auffüllen (Padding)__________________________________________________
 	for x in 0..hashsize-hashblocks[b].size-1
 		hashblocks[b].push(input[x%input.size])
 	end
@@ -62,7 +62,7 @@ def eckisHashAlg(input)
 		end
 	end
 
-#_________________________________finales ascii Padding___________________________________________________________________________
+#_________________________________Finales ascii Mapping___________________________________________________________________________
 	(hashblocks[0]).each_with_index do |x, i|
 		hashblocks[0][i]=x%123
 		if hashblocks[0][i]<48
